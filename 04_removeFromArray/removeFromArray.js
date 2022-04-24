@@ -11,14 +11,16 @@ Return final array
 let newArray = inputArray;
 let myArgs = args; // Turn args into array
 
-args.forEach(checkAndReplace(value));
+let i = 0;
+let argsLen = myArgs.length;
 
-function checkAndReplace(num) {
-    if (newArray.includes(num)) {
-        let index = newArray.findIndex(num);
-        newArray.splice(index, 1);
+while (i < argsLen) {
+    let currentNum = myArgs[i];
+    if (newArray.includes(currentNum)) {
+        let removeIndex = newArray.indexOf(currentNum);
+        newArray.splice(removeIndex, 1);
     }
-    return newArray;
+    i++;
 }
 
 return newArray;
